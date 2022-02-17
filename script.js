@@ -30,6 +30,23 @@ function addData(obj) {
   updateDOM();
 }
 
+function doubleMoney() {
+  data = data.map((user) => {
+    return {
+      ...user,
+      money: user.money * 2,
+    };
+  });
+  updateDOM();
+}
+
+function sort() {
+  data = data.sort((a, b) => {
+    return b.money - a.money;
+  });
+  updateDOM();
+}
+
 // Update DOM
 function updateDOM(providedData = data) {
   // Clear main div
@@ -51,4 +68,5 @@ function formatMoney(number) {
 
 // Event Listeners
 addUserBtn.addEventListener('click', getRandomUser);
-doubleBtn.addEventListener('click', doubleMoney());
+doubleBtn.addEventListener('click', doubleMoney);
+sortBtn.addEventListener('click', sort);
